@@ -1,16 +1,23 @@
+using Blog.Applications;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+#region Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-//builder.Services.AddOpenApi();
+#endregion
 
+#region Swagger 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+#endregion
 
+#region Application
+builder.Services.AddApplication(builder.Configuration);
+#endregion
 
 var app = builder.Build();
+
+app.Services.InitializeDatabase();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
