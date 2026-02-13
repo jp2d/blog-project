@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="../Blog.Applications/Blog.Applications.csproj" Id="81589990-d80d-460f-9864-a80865a0f951" />
+  <Project Path="../Blog.Domain/Blog.Domain.csproj" Id="0fb537b9-afc9-45e4-87a7-18e6f982f2f1" />
+  <Project Path="../Blog.Infrastructure/Blog.Infrastructure.csproj" Id="b15a493b-8f74-4940-aa4d-96f4dd831fa2" />
   <Project Path="Blog.Api.csproj" />
 </Solution>
