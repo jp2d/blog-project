@@ -1,6 +1,7 @@
 ﻿using Blog.Domain.Interfaces;
 using Blog.Infrastructure.Context;
 using Blog.Infrastructure.Repository;
+using Blog.Infrastructure.Seed;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,5 +26,11 @@ namespace Blog.Applications
             return services;
         }
 
+        public static void InitializeDatabase(this IServiceProvider serviceProvider)
+        {
+            using var scope = serviceProvider.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<BlogDbContext>();
+            DbInitializer.Initialize(context);
+        }
     }
 }
