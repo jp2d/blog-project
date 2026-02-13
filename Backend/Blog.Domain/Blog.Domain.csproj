@@ -10,8 +10,4 @@
     <Compile Remove="Class1.cs" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Blog.Infrastructure\Blog.Infrastructure.csproj" />
-  </ItemGroup>
-
 </Project>
