@@ -1,7 +1,6 @@
 ﻿using Blog.Domain.Entity;
 using Blog.Domain.Enum;
 using Blog.Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Infrastructure.Seed
 {

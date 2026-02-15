@@ -1,0 +1,7 @@
+﻿namespace Blog.Applications.Interfaces
+{
+    public interface IJwtTokenService
+    {
+        string GenerateToken(string userId, string role);
+    }
+}

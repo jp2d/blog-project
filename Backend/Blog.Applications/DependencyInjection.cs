@@ -1,4 +1,6 @@
-﻿using Blog.Domain.Interfaces;
+﻿using Blog.Applications.Interfaces;
+using Blog.Applications.Services;
+using Blog.Domain.Interfaces;
 using Blog.Infrastructure.Context;
 using Blog.Infrastructure.Repository;
 using Blog.Infrastructure.Seed;
@@ -12,13 +14,19 @@ namespace Blog.Applications
     {
         public static IServiceCollection AddApplication(this IServiceCollection services, IConfiguration configuration)
         {
-            // EF Core
+            #region EF Core
             services.AddDbContext<BlogDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("Default")));
+            #endregion
 
-            // Repositórios
+            #region Repositories
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            #endregion
+
+            #region Authentication
+            services.AddScoped<IJwtTokenService, JwtTokenService>();
+            #endregion
 
             // Aqui você pode registrar também serviços de aplicação
             // services.AddScoped<IPostService, PostService>();
