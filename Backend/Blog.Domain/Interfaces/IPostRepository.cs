@@ -5,6 +5,7 @@ namespace Blog.Domain.Interfaces
     public interface IPostRepository
     {
         Task<IEnumerable<Post>> GetAllAsync();
+        Task<IEnumerable<Post>> GetAllByAuthorIdAsync(User user);
         Task<Post?> GetByIdAsync(int id);
         Task AddAsync(Post post);
         Task UpdateAsync(Post post);
