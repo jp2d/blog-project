@@ -6,7 +6,7 @@ namespace Blog.Domain.Interfaces
     {
         Task<IEnumerable<User>> GetAllAsync();
         Task<User?> GetByIdAsync(int id);
-        Task<User?> GetByEmailAsync(string email);
+        Task<User?> GetByEmailAndPwdAsync(string email, string pwd);
         Task AddAsync(User user);
         Task UpdateAsync(User user);
         Task DeleteAsync(int id);
