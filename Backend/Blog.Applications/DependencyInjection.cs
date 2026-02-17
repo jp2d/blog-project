@@ -16,7 +16,8 @@ namespace Blog.Applications
         {
             #region EF Core
             services.AddDbContext<BlogDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("Default")));
+                options.UseNpgsql(configuration.GetConnectionString("Default"))
+                .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information));
             #endregion
 
             #region Repositories
@@ -26,10 +27,13 @@ namespace Blog.Applications
 
             #region Authentication
             services.AddScoped<IJwtTokenService, JwtTokenService>();
+            services.AddScoped<IAuthService, AuthService>();
             #endregion
 
-            // Aqui você pode registrar também serviços de aplicação
-            // services.AddScoped<IPostService, PostService>();
+            #region Serviços de aplicação
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IPostService, PostService>();
+            #endregion
 
             return services;
         }
