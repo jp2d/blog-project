@@ -24,14 +24,5 @@ services:
     ports:
       - "5000:8080"
       - "5001:8081"
-
-  # front:
-  #   build: ./Blog.Front
-  #   container_name: blogfront
-  #   depends_on:
-  #     - api
-  #   ports:
-  #     - "3000:3000"
-
 volumes:
   pgdata:
