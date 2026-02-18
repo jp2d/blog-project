@@ -13,3 +13,23 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+
+export const logout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("profile");
+  window.location.href = "/";
+};
+
+export const isLoggedIn = () => {
+  return !!localStorage.getItem("token");
+};
+
+export const getProfile = () => {
+  const profileStr = localStorage.getItem("profile");
+  if (!profileStr) return null;
+  try {
+    return JSON.parse(profileStr);
+  } catch {
+    return null;
+  }
+};
