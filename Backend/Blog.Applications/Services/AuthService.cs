@@ -1,4 +1,5 @@
 ﻿using Blog.Applications.Interfaces;
+using Blog.Domain.Entity;
 using Blog.Domain.Interfaces;
 
 namespace Blog.Applications.Services
@@ -26,5 +27,7 @@ namespace Blog.Applications.Services
             return _jwtTokenService.GenerateToken(user.Id.ToString(), user.Role.ToString()) 
                 ?? throw new ArgumentNullException(nameof(_jwtTokenService));
         }
+
+        public async Task<User?> GetUserByEmail(string email) => await _userRepository.GetByEmailAsync(email);
     }
 }

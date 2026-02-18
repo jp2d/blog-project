@@ -53,6 +53,19 @@ builder.Services.AddAuthentication();
 builder.Services.AddControllers();
 #endregion
 
+#region CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000") // origem do front
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+#endregion
+
 var app = builder.Build();
 
 app.Services.InitializeDatabase();
@@ -70,6 +83,8 @@ if (app.Environment.IsProduction() || app.Environment.IsDevelopment())
 #endregion
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 
