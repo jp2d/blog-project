@@ -25,13 +25,16 @@ services:
       - "5000:8080"
       - "5001:8081"
 
-  # front:
-  #   build: ./Blog.Front
-  #   container_name: blogfront
-  #   depends_on:
-  #     - api
-  #   ports:
-  #     - "3000:3000"
+  front:
+    build:
+      context: ../Frontend/blog-frontend
+      dockerfile: Dockerfile
+    container_name: blogfront
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+
 
 volumes:
   pgdata:
