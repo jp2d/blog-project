@@ -22,3 +22,4 @@ packages/
 /Backend/Blog.Api/.vs/Blog.Api.slnx/v18/.futdcache.v2
 /Backend/Blog.Api/.vs/Blog.Api.slnx/v18/.suo
 /.vs
+/Frontend/node_modules
