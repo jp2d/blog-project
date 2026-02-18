@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Backend/Blog.Api/.vs/Blog.Api.slnx/v18/.futdcache.v2
+/Backend/Blog.Api/.vs/Blog.Api.slnx/v18/.suo
+/.vs
