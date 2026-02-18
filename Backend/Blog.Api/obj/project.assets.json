@@ -458,7 +458,7 @@
           "lib/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll": {
             "locale": "zh-Hant"
           }
-        },
+      },
         "contentFiles": {
           "contentFiles/any/any/BuildHost-net472/Microsoft.Build.Locator.dll": {
             "buildAction": "Content",
@@ -1407,6 +1407,9 @@
       "Blog.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Blog.Infrastructure": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Blog.Domain.dll": {}
         },
